@@ -1,0 +1,26 @@
+public class Solution {
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int row = nums.length;
+
+        int col = nums[0].length;
+        if((row*col)!=(r*c))
+            return nums;
+        int [][] op=new int[r][c];
+        int rn=0;
+        int cn=0;
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                op[rn][cn]=nums[i][j];
+                cn++;
+                if(cn==c)
+                {
+                    cn=0;
+                    rn++;
+                }
+            }
+        }
+        return op;
+    }
+}
